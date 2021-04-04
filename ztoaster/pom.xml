@@ -6,7 +6,7 @@
 
     <groupId>fr.zcraft</groupId>
     <artifactId>ztoaster</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT-MH</version>
     <packaging>jar</packaging>
 
     <name>Ztoaster</name>

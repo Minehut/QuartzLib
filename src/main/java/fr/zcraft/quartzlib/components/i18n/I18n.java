@@ -288,54 +288,54 @@ public class I18n extends QuartzComponent {
         }
     }
 
-    /**
-     * Loads a file into the translations system.
-     * <p>If this file is a directory, all files inside will be loaded, recursively.</p>
-     * <p>The locale will be extracted from the file name, and the format, from the file's extension.</p>
-     *
-     * @param file The file to load.
-     */
-    public static void load(final File file) {
-        load(file, 0);
-    }
-
-
-    /* **  TRANSLATIONS LOADING METHODS  ** */
-
-    /**
-     * Loads a file into the translations system.
-     * <p>If this file is a directory, all files inside will be loaded, recursively.</p>
-     * <p>The locale will be extracted from the file name, and the format, from the file's extension.</p>
-     *
-     * @param file     The file to load.
-     * @param priority The priority to set for this translator. Translators with
-     *                 a higher priority will be called first for a translation.
-     */
-    public static void load(final File file, int priority) {
-        Validate.notNull(file, "The File to load into the i18n component cannot be null.");
-
-        if (!file.exists()) {
-            return;
-        }
-
-        if (file.isDirectory()) {
-            final File[] children = file.listFiles();
-            if (children == null) {
-                return;
-            }
-
-            for (final File child : children) {
-                load(child, priority);
-            }
-        } else if (file.isFile()) {
-            final Locale locale = localeFromString(file.getName().split("\\.")[0]);
-            final Translator translator = Translator.getInstance(locale, file);
-
-            if (translator != null) {
-                registerTranslator(locale, translator, priority);
-            }
-        }
-    }
+//    /**
+//     * Loads a file into the translations system.
+//     * <p>If this file is a directory, all files inside will be loaded, recursively.</p>
+//     * <p>The locale will be extracted from the file name, and the format, from the file's extension.</p>
+//     *
+//     * @param file The file to load.
+//     */
+//    public static void load(final File file) {
+//        load(file, 0);
+//    }
+//
+//
+//    /* **  TRANSLATIONS LOADING METHODS  ** */
+//
+//    /**
+//     * Loads a file into the translations system.
+//     * <p>If this file is a directory, all files inside will be loaded, recursively.</p>
+//     * <p>The locale will be extracted from the file name, and the format, from the file's extension.</p>
+//     *
+//     * @param file     The file to load.
+//     * @param priority The priority to set for this translator. Translators with
+//     *                 a higher priority will be called first for a translation.
+//     */
+//    public static void load(final File file, int priority) {
+//        Validate.notNull(file, "The File to load into the i18n component cannot be null.");
+//
+//        if (!file.exists()) {
+//            return;
+//        }
+//
+//        if (file.isDirectory()) {
+//            final File[] children = file.listFiles();
+//            if (children == null) {
+//                return;
+//            }
+//
+//            for (final File child : children) {
+//                load(child, priority);
+//            }
+//        } else if (file.isFile()) {
+//            final Locale locale = localeFromString(file.getName().split("\\.")[0]);
+//            final Translator translator = Translator.getInstance(locale, file);
+//
+//            if (translator != null) {
+//                registerTranslator(locale, translator, priority);
+//            }
+//        }
+//    }
 
     /**
      * Registers a translator into the translations system.
@@ -718,6 +718,6 @@ public class I18n extends QuartzComponent {
             loadFromJar(i18nDirectory);
         }
 
-        load(new File(QuartzLib.getPlugin().getDataFolder(), i18nDirectory), 100);
+//        load(new File(QuartzLib.getPlugin().getDataFolder(), i18nDirectory), 100);
     }
 }
